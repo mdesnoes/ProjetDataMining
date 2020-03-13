@@ -8,28 +8,27 @@ import java.util.List;
 public class FichierUtils {
 	
 	private String nom;
+	private BufferedReader reader;
 	
 	public FichierUtils(String nom) {
 		this.nom = nom;
-	}
-
-	public List<String> getContenu() throws IOException {
-		BufferedReader reader = null;
-	    String ligne;
-	    
-	    List<String> lignes = new ArrayList<String>();
-
-	    try {
+		
+		this.reader = null;
+		try {
 	    	reader = new BufferedReader(new FileReader(this.nom));
 	    } catch(FileNotFoundException exc) {
 	    	System.out.println("Erreur d'ouverture");
 	    }
+	}
+
+	public List<String> getLignes() throws IOException {
+	    String ligne;
 	    
-	    while ((ligne = reader.readLine()) != null) {
+	    List<String> lignes = new ArrayList<String>();
+	    while ((ligne = this.reader.readLine()) != null) {
 	    	lignes.add(ligne);
 	    }
 	    
-	    reader.close();
 	    return lignes;
 	}
 }
