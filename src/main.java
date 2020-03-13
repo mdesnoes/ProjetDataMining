@@ -12,6 +12,10 @@ public class main {
 			System.out.println(entreprise)
 		);
 		
+		
+		//BRANCH & BOUND
+		BranchAndBound Bb = new BranchAndBound(entreprises);
+		Bb.execute();
 	}
 
 }
