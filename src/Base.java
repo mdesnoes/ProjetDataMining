@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Base {
@@ -42,10 +43,8 @@ public class Base {
     public void setNomBase(String nomBase) {
         this.nomBase = nomBase;
     }
-	//###############################################################################################################
-
 	public void setEntreprises(ArrayList<String> entreprises) {
 		this.entreprises = entreprises;
 	}
-
+	//###############################################################################################################
 }

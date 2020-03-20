@@ -59,6 +59,16 @@ public class ListeBase {
     }
 
     
+    public void AfficherListe() {
+    	for(Base b : listeBases) {
+    		System.out.println(b.getNomBase());
+    	}
+    }
+    
+    
+    public Base get(int i) {
+		return listeBases.get(i);
+    }
     // GETTER ET SETTER DE LA CLASSE
     public int getNbBase() {
         return nbBase;

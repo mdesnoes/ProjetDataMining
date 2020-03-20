@@ -32,13 +32,21 @@ public class main {
 		System.out.println("==========================");
 		System.out.println("=== EXECUTION ALGO B&B ===");
 		System.out.println("==========================");
-		BranchAndBound Bb = new BranchAndBound(entreprises);
+		BranchAndBound Bb = new BranchAndBound(entreprises,listeBase);
 		Bb.execute();
 		
 	}
 
 	public static void main(String[] args) throws IOException{
 		
+		executionScenario("Liste Ent1.txt","Liste Bases1.txt");
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		executionScenario("Liste Ent2.txt","Liste Bases2.txt");
+		System.out.println();
+		System.out.println();
+		System.out.println();
 		executionScenario("Liste Ent3.txt","Liste Bases3.txt");
 		
 	}
