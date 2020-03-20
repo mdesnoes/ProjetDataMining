@@ -2,34 +2,45 @@ import java.io.IOException;
 import java.util.List;
 
 public class main {
-
-	public static void main(String[] args) throws IOException{
-
-		FichierUtils fichEntreprises = new FichierUtils("data/scenarios/liste_entreprises/Liste Ent1.txt");
-		FichierUtils fichEntreprises2 = new FichierUtils("data/scenarios/liste_entreprises/Liste Ent2.txt");
-		FichierUtils fichEntreprises3 = new FichierUtils("data/scenarios/liste_entreprises/Liste Ent3.txt");
+	
+	private static final String CHEMIN_FICHIER = "data/scenarios/liste_entreprises/";
+	
+	public static void executionScenario(String nomFichierEntreprise, String nomFichierBase) throws IOException {
 		
+		FichierUtils fichEntreprises = new FichierUtils(CHEMIN_FICHIER + nomFichierEntreprise);
 		List<String> entreprises = fichEntreprises.getLignes();
-		List<String> entreprises2 = fichEntreprises2.getLignes();
-		List<String> entreprises3 = fichEntreprises3.getLignes();
-		entreprises3.remove(0);
+		entreprises.remove(0);
 		
-		/*entreprises3.forEach(entreprise ->
-			System.out.println(entreprise)
-		);*/
-
-		ListeBase listeBase3 = new ListeBase("Liste Bases3.txt");
+		ListeBase listeBase = new ListeBase(nomFichierBase);
 
 		// GLOUTON
-		Glouton glouton = new Glouton(entreprises3, listeBase3);
-		List<Base> baseOpti = glouton.execute();
-		baseOpti.forEach( base ->
-			System.out.println(base.getCout())
-		);
+		System.out.println("==============================");
+		System.out.println("=== EXECUTION ALGO GLOUTON ===");
+		System.out.println("==============================");
+
+		Glouton glouton = new Glouton(entreprises, listeBase);
+		List<Base> basesOpti = glouton.execute();
+		int coutTotal = 0;
+		System.out.println("Liste des bases necessaire pour obtenir toutes les informations sur les entreprises : ");
+		for(Base base : basesOpti) {
+			coutTotal += base.getCout();
+			System.out.println(base.getNomBase());
+		}
+		System.out.println("Le cout optimal pour obtenir les informations sur les entreprise est : " + coutTotal);
 		
 		// BRANCH & BOUND
-		BranchAndBound Bb = new BranchAndBound(entreprises3);
+		System.out.println("==========================");
+		System.out.println("=== EXECUTION ALGO B&B ===");
+		System.out.println("==========================");
+		BranchAndBound Bb = new BranchAndBound(entreprises);
 		Bb.execute();
+		
+	}
+
+	public static void main(String[] args) throws IOException{
+		
+		executionScenario("Liste Ent3.txt","Liste Bases3.txt");
+		
 	}
 
 }

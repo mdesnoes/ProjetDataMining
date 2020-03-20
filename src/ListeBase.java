@@ -8,12 +8,17 @@ import java.util.List;
  * @Kevin
  */
 public class ListeBase {
+	
+	private static final String CHEMIN_SCENARIO = "data/scenarios/liste_bases/";
+	private static final String CHEMIN_BASE = "data/bases/";
+
     private int nbBase;
     private String nomFichier;
     private List<Base> listeBases = new ArrayList<>();
 
+    
     public ListeBase(String fichierListe) throws IOException {
-        FichierUtils fichierBases = new FichierUtils("data/scenarios/liste_bases/"+fichierListe);
+        FichierUtils fichierBases = new FichierUtils(CHEMIN_SCENARIO + fichierListe);
 
         List<String> lignes = fichierBases.getLignes();
 
@@ -38,7 +43,7 @@ public class ListeBase {
         int nbElement;
         List<String> entreprises = new ArrayList<>();
 
-        FichierUtils utilsBase = new FichierUtils("data/bases/"+fichierBase);
+        FichierUtils utilsBase = new FichierUtils(CHEMIN_BASE + fichierBase);
 
         List<String> lignes = utilsBase.getLignes();
 
@@ -53,30 +58,24 @@ public class ListeBase {
         this.listeBases.add(base);
     }
 
+    
     // GETTER ET SETTER DE LA CLASSE
     public int getNbBase() {
         return nbBase;
     }
-
     public void setNbBase(int nbBase) {
         this.nbBase = nbBase;
     }
-
     public String getNomFichier() {
         return nomFichier;
     }
-
     public void setNomFichier(String nomFichier) {
         this.nomFichier = nomFichier;
     }
-
     public List<Base> getListeBases() {
         return listeBases;
     }
-
     public void setListeBases(List<Base> listeBases) {
         this.listeBases = listeBases;
     }
-
-
 }
