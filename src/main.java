@@ -20,13 +20,6 @@ public class main {
 
 		ListeBase listeBase3 = new ListeBase("Liste Bases3.txt");
 
-//		System.out.println("Cout : "+listeBase3.getListeBases().get(0).getCout());
-//		System.out.println("nbElement : "+listeBase3.getListeBases().get(0).getNbElements());
-//		System.out.println("Entreprises : ");
-//		listeBase3.getListeBases().get(0).getEntreprises().forEach( ent ->
-//        	System.out.println(ent)
-//		);
-
 		// GLOUTON
 		Glouton glouton = new Glouton(entreprises3, listeBase3);
 		List<Base> baseOpti = glouton.execute();
