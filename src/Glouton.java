@@ -1,13 +1,57 @@
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Glouton {
-	private List<String> entreprise;
-
-	public Glouton(List<String> entreprise) {
-		this.entreprise = entreprise;
+	
+	private List<String> entreprises;
+	private ListeBase bases;
+	
+	public Glouton(List<String> entreprises, ListeBase bases) {
+		this.entreprises = entreprises;
+		this.bases = bases;
 	}
 
-	public void execute() {
+	// On fait le choix glouton en fonction du coût d'une base
+	public List<Base> execute() {
 		
+		List<Base> baseOpti = new ArrayList<Base>();
+		
+ 		int coutTotal = 0;	// Le coût total des informations sur les entreprises
+		int cout = 0;	// Le coût pour avoir des informations sur l'entreprise courante
+		for(String entreprise : this.entreprises) {
+			
+			for(Base base : this.bases.getListBase()) {
+				if(base.contains(entreprise)) {
+					
+					if(base.getCout() < cout) {
+						coutTotal -= cout; // on enleve au coût total, l'ancien cout
+						cout = base.getCout(); // nouveau cout
+						coutTotal += cout; // on ajoute au cout total, le nouveau cout
+						
+						baseOpti.remove(baseOpti.size() - 1); // on supprime la dernier base de la liste
+						baseOpti.add(base); // on la remplace par la nouvelle qui est plus optimal
+					}
+				}
+			}
+			
+			cout = 0;
+		}
+		
+		return baseOpti;
+	}
+	
+
+	public List<String> getEntreprises() {
+		return entreprises;
+	}
+	public void setEntreprises(List<String> entreprises) {
+		this.entreprises = entreprises;
+	}
+	public ListeBase getBases() {
+		return bases;
+	}
+	public void setBases(ListeBase bases) {
+		this.bases = bases;
 	}
 }

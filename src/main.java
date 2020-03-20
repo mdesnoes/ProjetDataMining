@@ -22,9 +22,13 @@ public class main {
 		System.out.println("Cout : "+listeBase.getListeBases().get(0).getCout());
 		System.out.println("nbElement : "+listeBase.getListeBases().get(0).getNbElements());
 		System.out.println("Entreprises : ");
-		listeBase.getListeBases().get(0).getEntreprises().forEach(ent -> System.out.println(ent));
-
+		listeBase.getListeBases().get(0).getEntreprises().forEach( ent ->
+        System.out.println(ent)
+    );
 		
+		Glouton glouton = new Glouton(entreprises, listeBase);
+		List<Base> basesOpti = glouton.execute();
+				
 		// GLOUTON
 		Glouton glouton = new Glouton(entreprises3);
 		glouton.execute();
