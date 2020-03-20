@@ -54,7 +54,6 @@ public class ListeBase {
     }
 
     // GETTER ET SETTER DE LA CLASSE
-
     public int getNbBase() {
         return nbBase;
     }

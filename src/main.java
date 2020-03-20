@@ -12,27 +12,28 @@ public class main {
 		List<String> entreprises = fichEntreprises.getLignes();
 		List<String> entreprises2 = fichEntreprises2.getLignes();
 		List<String> entreprises3 = fichEntreprises3.getLignes();
-
+		entreprises3.remove(0);
+		
 		/*entreprises3.forEach(entreprise ->
 			System.out.println(entreprise)
 		);*/
 
-		ListeBase listeBase = new ListeBase("Liste Bases3.txt");
+		ListeBase listeBase3 = new ListeBase("Liste Bases3.txt");
 
-		System.out.println("Cout : "+listeBase.getListeBases().get(0).getCout());
-		System.out.println("nbElement : "+listeBase.getListeBases().get(0).getNbElements());
-		System.out.println("Entreprises : ");
-		listeBase.getListeBases().get(0).getEntreprises().forEach( ent ->
-        System.out.println(ent)
-    );
-		
-		Glouton glouton = new Glouton(entreprises, listeBase);
-		List<Base> basesOpti = glouton.execute();
-				
+//		System.out.println("Cout : "+listeBase3.getListeBases().get(0).getCout());
+//		System.out.println("nbElement : "+listeBase3.getListeBases().get(0).getNbElements());
+//		System.out.println("Entreprises : ");
+//		listeBase3.getListeBases().get(0).getEntreprises().forEach( ent ->
+//        	System.out.println(ent)
+//		);
+
 		// GLOUTON
-		Glouton glouton = new Glouton(entreprises3);
-		glouton.execute();
-
+		Glouton glouton = new Glouton(entreprises3, listeBase3);
+		List<Base> baseOpti = glouton.execute();
+		baseOpti.forEach( base ->
+			System.out.println(base.getCout())
+		);
+		
 		// BRANCH & BOUND
 		BranchAndBound Bb = new BranchAndBound(entreprises3);
 		Bb.execute();

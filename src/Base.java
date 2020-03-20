@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Base {
+public class Base {	
     private int cout;
     private int nbElements;
     private List<String> entreprises;
@@ -11,7 +11,7 @@ public class Base {
         this.entreprises = entreprises;
     }
 
-    public int getCout() {
+	public int getCout() {
         return cout;
     }
     public void setCout(int cout) {

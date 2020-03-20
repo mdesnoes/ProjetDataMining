@@ -18,19 +18,21 @@ public class Glouton {
 		List<Base> baseOpti = new ArrayList<Base>();
 		
  		int coutTotal = 0;	// Le coût total des informations sur les entreprises
-		int cout = 0;	// Le coût pour avoir des informations sur l'entreprise courante
+		int cout = 1000;	// Le coût pour avoir des informations sur l'entreprise courante
 		for(String entreprise : this.entreprises) {
 			
-			for(Base base : this.bases.getListBase()) {
-				if(base.contains(entreprise)) {
+			for(Base base : this.bases.getListeBases()) {
+				if(base.getEntreprises().contains(entreprise)) {
 					
 					if(base.getCout() < cout) {
 						coutTotal -= cout; // on enleve au coût total, l'ancien cout
 						cout = base.getCout(); // nouveau cout
 						coutTotal += cout; // on ajoute au cout total, le nouveau cout
 						
-						baseOpti.remove(baseOpti.size() - 1); // on supprime la dernier base de la liste
-						baseOpti.add(base); // on la remplace par la nouvelle qui est plus optimal
+						if(!baseOpti.isEmpty()) {
+							baseOpti.remove(baseOpti.size() - 1); // on supprime la derniere base de la liste
+						}
+						baseOpti.add(base); // on la remplace par la nouvelle qui est plus optimale
 					}
 				}
 			}
