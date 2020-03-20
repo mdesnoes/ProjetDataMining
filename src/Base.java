@@ -1,11 +1,14 @@
 import java.util.List;
 
-public class Base {	
+public class Base {
+
+    private String nomBase;
     private int cout;
     private int nbElements;
     private List<String> entreprises;
 
-    public Base(int cout, int nbElements, List<String> entreprises) {
+    public Base(String nomBase, int cout, int nbElements, List<String> entreprises) {
+        this.nomBase = nomBase;
         this.cout = cout;
         this.nbElements = nbElements;
         this.entreprises = entreprises;
@@ -29,4 +32,13 @@ public class Base {
     public void setNbElements(int nbElements) {
         this.nbElements = nbElements;
     }
+
+    public String getNomBase() {
+        return nomBase;
+    }
+
+    public void setNomBase(String nomBase) {
+        this.nomBase = nomBase;
+    }
+
 }
