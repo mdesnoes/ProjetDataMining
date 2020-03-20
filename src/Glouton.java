@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -5,7 +6,6 @@ public class Glouton {
 	
 	private List<String> entreprises;
 	private ListeBase bases;
-
 	
 	public Glouton(List<String> entreprises, ListeBase bases) {
 		this.entreprises = entreprises;
