@@ -6,15 +6,15 @@ public class main {
 	public static void main(String[] args) throws IOException{
 
 		FichierUtils fichEntreprises = new FichierUtils("data/scenarios/liste_entreprises/Liste Ent1.txt");
+		List<String> entreprisesDemandees = fichEntreprises.getLignes();
 		
-		List<String> entreprises = fichEntreprises.getLignes();
-		entreprises.forEach(entreprise ->
-			System.out.println(entreprise)
-		);
 		
+		FichierUtils fichBases = new FichierUtils("data/scenarios/liste_bases/Liste Bases1.txt");
+		List<String> basesDemandees = fichBases.getLignes();
+
 		
 		//BRANCH & BOUND
-		BranchAndBound Bb = new BranchAndBound(entreprises);
+		BranchAndBound Bb = new BranchAndBound(entreprisesDemandees,basesDemandees);
 		Bb.execute();
 	}
 
