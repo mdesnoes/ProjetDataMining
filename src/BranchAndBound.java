@@ -55,4 +55,13 @@ public class BranchAndBound {
 		AjoutEnfants(droit,++indice);
 		
 	}
+	
+	
+	/*
+	 * 
+	 * Au parcours de l'arbre on doit verifier :
+	 * 		Si le noeud possède toutes les entreprises, Si le cout est plus faible que le cout courant on sauvegarde le noeud et on arrête le parcours de cette branche
+	 * 													Sinon on arrête la branche
+	 * 		Sinon on continue la branche
+	 */
 }
