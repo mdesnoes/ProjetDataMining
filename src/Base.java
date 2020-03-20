@@ -14,6 +14,8 @@ public class Base {
         this.entreprises = entreprises;
     }
 
+	//###############################################################################################################
+	//				GETTERS AND SETTERS
 	public int getCout() {
         return cout;
     }
@@ -40,5 +42,10 @@ public class Base {
     public void setNomBase(String nomBase) {
         this.nomBase = nomBase;
     }
+	//###############################################################################################################
+
+	public void setEntreprises(ArrayList<String> entreprises) {
+		this.entreprises = entreprises;
+	}
 
 }
