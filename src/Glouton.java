@@ -4,43 +4,64 @@ import java.util.List;
 
 public class Glouton {
 	
-	private static final int INFINI = Integer.MAX_VALUE;
-
 	private List<String> entreprises;
-	private ListeBase bases;
+	private ListeBase listeBases;
 		
-	public Glouton(List<String> entreprises, ListeBase bases) {
+	public Glouton(List<String> entreprises, ListeBase listeBases) {
 		this.entreprises = entreprises;
-		this.bases = bases;
+		this.listeBases = listeBases;
 	}
-
-	// On fait le choix glouton en fonction du coût d'une base
+	
 	public List<Base> execute() {
 		
 		List<Base> listBaseOpti = new ArrayList<Base>();
 		
-		int cout = INFINI;	// Le coût pour avoir des informations sur l'entreprise courante
 		Base baseOpti = null; // La base ayant le coût le plus optimal pour l'entreprise courante
 		
-		for(String entreprise : this.entreprises) {
+		do {
+			baseOpti = choixGlouton(this.entreprises, this.listeBases);
 			
-			for(Base base : this.bases.getListeBases()) {
-				if(base.getEntreprises().contains(entreprise)) {
-					
-					if(base.getCout() < cout) {
-						cout = base.getCout(); // Nouveau coût optimal
-						baseOpti = base; // Nouvelle base optimal
+			// On supprime la base qui a été choisi pour ne pas la parcourir plusieurs fois
+			this.listeBases.getListeBases().remove(baseOpti);
+
+			// Et on supprime les entreprises qui sont gérer
+			for(String ent : baseOpti.getEntreprises()) {
+				this.entreprises.remove(ent);
+			}
+			
+			//On ajoute la base a la liste des bases opti
+			listBaseOpti.add(baseOpti);
+		}
+		while(!this.entreprises.isEmpty());		
+		
+		return listBaseOpti;
+	}
+	
+	// Retourne la base qui contient le plus d'entreprise recherché
+	
+	// Premier critére le nombre d'entreprise presente dans la base
+	// Si égalité alors celle qui a le cout minimal
+	private Base choixGlouton(List<String> entreprises, ListeBase listeBase) {
+		Base baseChoisi = listeBase.getListeBases().get(0);
+		
+		int nbEntreprise = 0;
+		for(Base base : listeBase.getListeBases()) {
+			
+			int nbEntrepriseBase = base.compterEntreprises(entreprises);
+			if(nbEntrepriseBase > nbEntreprise) {
+				nbEntreprise = nbEntrepriseBase;
+				baseChoisi = base;
+			} else {
+				if(nbEntreprise == nbEntrepriseBase) {
+					if(baseChoisi.getCout() > base.getCout()) {
+						baseChoisi = base;
 					}
 				}
 			}
 			
-			if(!listBaseOpti.contains(baseOpti)) {
-				listBaseOpti.add(baseOpti);
-			}
-			cout = INFINI;
 		}
 		
-		return listBaseOpti;
+		return baseChoisi;
 	}
 
 }
