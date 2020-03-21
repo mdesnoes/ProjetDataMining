@@ -13,6 +13,18 @@ public class Base {
         this.nbElements = nbElements;
         this.entreprises = entreprises;
     }
+    
+    public int compterEntreprises(List<String> entreprises) {
+    	int nb = 0;
+    	
+    	for(String ent : entreprises) {
+    		if(this.entreprises.contains(ent)) {
+    			++nb;
+    		}
+    	}
+    	
+    	return nb;
+    }
 
 	//###############################################################################################################
 	//				GETTERS AND SETTERS
@@ -43,9 +55,4 @@ public class Base {
         this.nomBase = nomBase;
     }
 	//###############################################################################################################
-
-	public void setEntreprises(ArrayList<String> entreprises) {
-		this.entreprises = entreprises;
-	}
-
 }

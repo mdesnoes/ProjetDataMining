@@ -32,14 +32,14 @@ public class main {
 		System.out.println("==========================");
 		System.out.println("=== EXECUTION ALGO B&B ===");
 		System.out.println("==========================");
-		BranchAndBound Bb = new BranchAndBound(entreprises);
-		Bb.execute();
+//		BranchAndBound Bb = new BranchAndBound(entreprises);
+//		Bb.execute();
 		
 	}
 
 	public static void main(String[] args) throws IOException{
 		
-		executionScenario("Liste Ent3.txt","Liste Bases3.txt");
+		executionScenario("Liste Ent1.txt","Liste Bases1.txt");
 		
 	}
 
