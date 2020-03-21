@@ -13,34 +13,25 @@ public class Glouton {
 	}
 	
 	public List<Base> execute() {
-		
 		List<Base> listBaseOpti = new ArrayList<Base>();
-		
-		Base baseOpti = null; // La base ayant le coût le plus optimal pour l'entreprise courante
-		
+				
 		do {
-			baseOpti = choixGlouton(this.entreprises, this.listeBases);
+			Base baseOpti = choixGlouton(this.entreprises, this.listeBases);
 			
-			// On supprime la base qui a été choisi pour ne pas la parcourir plusieurs fois
 			this.listeBases.getListeBases().remove(baseOpti);
 
-			// Et on supprime les entreprises qui sont gérer
-			for(String ent : baseOpti.getEntreprises()) {
-				this.entreprises.remove(ent);
-			}
+			this.entreprises.removeAll(baseOpti.getEntreprises());
 			
-			//On ajoute la base a la liste des bases opti
+			//On ajoute la base a la liste des bases optimales
 			listBaseOpti.add(baseOpti);
 		}
 		while(!this.entreprises.isEmpty());		
 		
 		return listBaseOpti;
 	}
-	
-	// Retourne la base qui contient le plus d'entreprise recherché
-	
-	// Premier critére le nombre d'entreprise presente dans la base
-	// Si égalité alors celle qui a le cout minimal
+		
+	// Critere de choix : Le nombre d'entreprise recherché presente dans la base
+	// Et si égalité alors celle qui a le cout minimal
 	private Base choixGlouton(List<String> entreprises, ListeBase listeBase) {
 		Base baseChoisi = listeBase.getListeBases().get(0);
 		
@@ -58,7 +49,6 @@ public class Glouton {
 					}
 				}
 			}
-			
 		}
 		
 		return baseChoisi;
