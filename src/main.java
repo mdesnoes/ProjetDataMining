@@ -7,10 +7,10 @@ public class main {
 	
 	public static void executionScenario(String nomFichierEntreprise, String nomFichierBase) throws IOException {
 		
+		// Initialisation des variables pour l'algo glouton
 		FichierUtils fichEntreprises = new FichierUtils(CHEMIN_FICHIER + nomFichierEntreprise);
 		List<String> entreprises = fichEntreprises.getLignes();
 		entreprises.remove(0);
-		
 		ListeBase listeBase = new ListeBase(nomFichierBase);
 
 		// GLOUTON
@@ -19,34 +19,35 @@ public class main {
 		System.out.println("==============================");
 
 		Glouton glouton = new Glouton(entreprises, listeBase);
-		List<Base> basesOpti = glouton.execute();
-		int coutTotal = 0;
-		System.out.println("Liste des bases necessaire pour obtenir toutes les informations sur les entreprises : ");
-		for(Base base : basesOpti) {
-			coutTotal += base.getCout();
-			System.out.println(base.getNomBase());
-		}
-		System.out.println("Le cout optimal pour obtenir les informations sur les entreprise est : " + coutTotal);
+		glouton.execute();
+		
+		
+		// Ré-initialisation des variables pour executer le deuxième algo ( B&B )
+		fichEntreprises = new FichierUtils(CHEMIN_FICHIER + nomFichierEntreprise);
+		entreprises = fichEntreprises.getLignes();
+		entreprises.remove(0);
+		listeBase = new ListeBase(nomFichierBase);
 		
 		// BRANCH & BOUND
 		System.out.println("==========================");
 		System.out.println("=== EXECUTION ALGO B&B ===");
 		System.out.println("==========================");
     
-		BranchAndBound Bb = new BranchAndBound(entreprises,listeBase);
-		Bb.execute();
+		BranchAndBound bb = new BranchAndBound(entreprises,listeBase);
+		bb.execute();
 	}
 
 	public static void main(String[] args) throws IOException{
 		
+		System.out.println("------ Scenario 1 -------");
 		executionScenario("Liste Ent1.txt","Liste Bases1.txt");
 		System.out.println();
 		System.out.println();
-		System.out.println();
+		System.out.println("------ Scenario 2 -------");
 		executionScenario("Liste Ent2.txt","Liste Bases2.txt");
 		System.out.println();
 		System.out.println();
-		System.out.println();
+		System.out.println("------ Scenario 3 -------");
 		executionScenario("Liste Ent3.txt","Liste Bases3.txt");
 		
 	}

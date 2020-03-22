@@ -3,20 +3,20 @@ import java.util.List;
 
 public class Noeud {
 	private int cout;
-	private ArrayList<String> entreprises;
-	private ArrayList<Base> bases;
+	private List<String> entreprises;
+	private List<Base> bases;
 	
 	//CREATION D'UN NOEUD NULL
 	public Noeud() {
 		super();
-		int cout=0;
+		this.cout = 0;
 		this.setEntreprises(new ArrayList<String>());
 		this.setBases(new ArrayList<Base>());
 	}
 	
 	
 	//CREATION D'UN NOEUD AVEC AJOUT DE BASE
-	public Noeud(ArrayList<String> e, int c, ArrayList<Base> ba, Base newBase) {
+	public Noeud(List<String> e, int c, List<Base> ba, Base newBase) {
 		super();
 		//ajout entreprises
 		entreprises = new ArrayList<String>();
@@ -51,7 +51,6 @@ public class Noeud {
 		}
 	}
 	
-	
 	public boolean PossedeEntreprises(List<String> entreprisesDemandees) {
 		for(String entdem : entreprisesDemandees) {
 			if(!entreprises.contains(entdem))
@@ -59,7 +58,6 @@ public class Noeud {
 		}
 		return true;
 	}
-	
 	
 	public void Afficher() {
 		System.out.print("COUT : "+getCout());
@@ -69,27 +67,22 @@ public class Noeud {
 	
 	//###############################################################################################################
 	//				GETTERS AND SETTERS
-	public ArrayList<String> getEntreprises() {
+	public List<String> getEntreprises() {
 		return entreprises;
 	}
-
-	public void setEntreprises(ArrayList<String> entreprises) {
+	public void setEntreprises(List<String> entreprises) {
 		this.entreprises = entreprises;
 	}
-
 	public int getCout() {
 		return cout;
 	}
-
 	public void setCout(int cout) {
 		this.cout = cout;
 	}
-
-	public ArrayList<Base> getBases() {
+	public List<Base> getBases() {
 		return bases;
 	}
-
-	public void setBases(ArrayList<Base> bases) {
+	public void setBases(List<Base> bases) {
 		this.bases = bases;
 	}
 	//###############################################################################################################

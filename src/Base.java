@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 
 public class Base {
@@ -47,11 +46,9 @@ public class Base {
     public void setNbElements(int nbElements) {
         this.nbElements = nbElements;
     }
-
     public String getNomBase() {
         return nomBase;
     }
-
     public void setNomBase(String nomBase) {
         this.nomBase = nomBase;
     }

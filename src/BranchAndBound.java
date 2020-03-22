@@ -1,6 +1,9 @@
 import java.util.List;
 
 public class BranchAndBound {
+	
+	private static final int INFINI = Integer.MAX_VALUE;
+	
 	private List<String> entreprisesDemandees;
 	private ListeBase basesDemandees;
 	private Noeud noeudOptimale;
@@ -9,7 +12,7 @@ public class BranchAndBound {
 		this.entreprisesDemandees=entreprisesDemandees;
 		this.basesDemandees=basesDemandees;
 		this.noeudOptimale = new Noeud();
-		this.noeudOptimale.setCout(1000000);       //+infinite
+		this.noeudOptimale.setCout(INFINI);
 	}
 
 	public void execute() {
@@ -24,11 +27,11 @@ public class BranchAndBound {
 		
 		
 		//AFFICHAGE
-		System.out.println("Le cout optimal pour obtenir les informations sur les entreprise est : "+noeudOptimale.getCout());
-		System.out.println("Avec les bases : ");
+		System.out.println("Bases optimales : ");
 		for(Base b :noeudOptimale.getBases()) {
-			System.out.println(b.getNomBase() + "   de cout : "+b.getCout());
+			System.out.println(b.getNomBase() + " ( cout : "+b.getCout() + " )");
 		}
+		System.out.println("Le cout optimal pour obtenir les informations sur les entreprise est : "+noeudOptimale.getCout());
 	}
 	
 	

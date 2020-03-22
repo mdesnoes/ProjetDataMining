@@ -12,7 +12,7 @@ public class Glouton {
 		this.listeBases = listeBases;
 	}
 	
-	public List<Base> execute() {
+	public void execute() {
 		List<Base> listBaseOpti = new ArrayList<Base>();
 				
 		do {
@@ -27,7 +27,15 @@ public class Glouton {
 		}
 		while(!this.entreprises.isEmpty());		
 		
-		return listBaseOpti;
+		
+		//AFFICHAGE
+		int coutTotal = 0;
+		System.out.println("Bases optimales : ");
+		for(Base base : listBaseOpti) {
+			coutTotal += base.getCout();
+			System.out.println(base.getNomBase() + " ( cout : "+base.getCout() + " )");
+		}
+		System.out.println("Le cout optimal pour obtenir les informations sur les entreprise est : " + coutTotal);
 	}
 		
 	// Critere de choix : Le nombre d'entreprise recherché presente dans la base

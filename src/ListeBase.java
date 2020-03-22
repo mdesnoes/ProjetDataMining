@@ -14,7 +14,7 @@ public class ListeBase {
 
     private int nbBase;
     private String nomFichier;
-    private List<Base> listeBases = new ArrayList<>();
+    private List<Base> listeBases = new ArrayList<Base>();
 
     
     public ListeBase(String fichierListe) throws IOException {
@@ -57,7 +57,6 @@ public class ListeBase {
 
         this.listeBases.add(base);
     }
-
     
     public void AfficherListe() {
     	for(Base b : listeBases) {
@@ -65,10 +64,10 @@ public class ListeBase {
     	}
     }
     
-    
     public Base get(int i) {
 		return listeBases.get(i);
     }
+    
     // GETTER ET SETTER DE LA CLASSE
     public int getNbBase() {
         return nbBase;
