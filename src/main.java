@@ -19,8 +19,10 @@ public class main {
 		System.out.println("==============================");
 
 		Glouton glouton = new Glouton(entreprises, listeBase);
+		long timeDebut = System.currentTimeMillis();
 		glouton.execute();
-		
+		long timeFin = System.currentTimeMillis();
+	    System.out.println("### Temps d'execution : "+ (timeFin - timeDebut) + " milliseconde(s) ###\n");
 		
 		// Ré-initialisation des variables pour executer le deuxième algo ( B&B )
 		fichEntreprises = new FichierUtils(CHEMIN_FICHIER + nomFichierEntreprise);
@@ -34,9 +36,13 @@ public class main {
 		System.out.println("==========================");
     
 		BranchAndBound bb = new BranchAndBound(entreprises,listeBase);
+		timeDebut = System.currentTimeMillis();
 		bb.execute();
+		timeFin = System.currentTimeMillis();
+		System.out.println("### Temps d'exécution : " + (timeFin - timeDebut) + " milliseconde(s) ###\n");
 	}
 
+	
 	public static void main(String[] args) throws IOException{
 		
 		System.out.println("------ Scenario 1 -------");
