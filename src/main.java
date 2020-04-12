@@ -32,9 +32,9 @@ public class main {
 		System.out.println("==========================");
 		System.out.println("=== EXECUTION ALGO B&B ===");
 		System.out.println("==========================");
+    
 		BranchAndBound Bb = new BranchAndBound(entreprises,listeBase);
 		Bb.execute();
-		
 	}
 
 	public static void main(String[] args) throws IOException{
