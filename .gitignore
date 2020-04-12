@@ -15,3 +15,4 @@
 
 # Intelij file
 *.iml
+/bin/
