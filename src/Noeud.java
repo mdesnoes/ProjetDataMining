@@ -61,11 +61,6 @@ public class Noeud {
 	}
 	
 	
-	public void Afficher() {
-		System.out.print("COUT : "+getCout());
-	}
-	
-	
 	
 	//###############################################################################################################
 	//				GETTERS AND SETTERS

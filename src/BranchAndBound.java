@@ -24,10 +24,15 @@ public class BranchAndBound {
 		
 		
 		//AFFICHAGE
-		System.out.println("Le cout optimal pour obtenir les informations sur les entreprise est : "+noeudOptimale.getCout());
-		System.out.println("Avec les bases : ");
-		for(Base b :noeudOptimale.getBases()) {
-			System.out.println(b.getNomBase() + "   de cout : "+b.getCout());
+		if(noeudOptimale.getCout()==1000000) {
+			System.out.println("Impossible de couvrir toutes les entreprises avec ces bases");
+		}
+		else {
+			System.out.println("Le cout optimal pour obtenir les informations sur les entreprise est : "+noeudOptimale.getCout());
+			System.out.println("Avec les bases : ");
+			for(Base b :noeudOptimale.getBases()) {
+				System.out.println("	- "+b.getNomBase() + "   de cout : "+b.getCout());
+			}
 		}
 	}
 	
