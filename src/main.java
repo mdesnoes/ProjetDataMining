@@ -55,6 +55,9 @@ public class main {
 		System.out.println();
 		System.out.println("------ Scenario 3 -------");
 		executionScenario("Liste Ent3.txt","Liste Bases3.txt");
+		System.out.println();
+		System.out.println("------ Scenario 4 -------");
+		executionScenario("Liste Ent4.txt","Liste Bases4.txt");
 		
 	}
 
