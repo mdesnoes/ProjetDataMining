@@ -53,7 +53,7 @@ public class ListeBase {
         lignes.stream().filter( ligne -> !Integer.toString(cout).equals(ligne) ).filter(ligne -> !Integer.toString(nbElement).equals(ligne) )
                 .forEach(entreprise -> entreprises.add(entreprise));
 
-        Base base = new Base(fichierBase, cout, nbElement, entreprises);
+        Base base = new Base(fichierBase.split("\\.")[0], cout, nbElement, entreprises);
 
         this.listeBases.add(base);
     }

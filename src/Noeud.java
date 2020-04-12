@@ -64,7 +64,6 @@ public class Noeud {
 	}
 	
 	
-	
 	//###############################################################################################################
 	//				GETTERS AND SETTERS
 	public List<String> getEntreprises() {
