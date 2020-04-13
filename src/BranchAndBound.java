@@ -27,7 +27,7 @@ public class BranchAndBound {
 		
 		
 		//AFFICHAGE
-		if(noeudOptimale.getCout()==1000000) {
+		if(noeudOptimale.getCout() == INFINI) {
 			System.out.println("Impossible de couvrir toutes les entreprises avec ces bases");
 		}
 		else {
