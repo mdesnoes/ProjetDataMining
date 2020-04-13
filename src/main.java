@@ -63,7 +63,10 @@ public class main {
 		System.out.println();
 		System.out.println("------ Scenario 5 -------");
 		executionScenario("Liste Ent5.txt","Liste Bases5.txt");
-		
+		System.out.println();
+		System.out.println();
+		System.out.println("------ Scenario 6 -------");
+		executionScenario("Liste Ent6.txt","Liste Bases6.txt");
 	}
 
 }
