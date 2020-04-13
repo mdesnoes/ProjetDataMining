@@ -22,7 +22,7 @@ public class main {
 		long timeDebut = System.currentTimeMillis();
 		glouton.execute();
 		long timeFin = System.currentTimeMillis();
-	    System.out.println("### Temps d'execution : "+ (timeFin - timeDebut) + " milliseconde(s) ###\n");
+	    System.out.println("### Temps d'execution : " + (timeFin - timeDebut) + " milliseconde(s) ###\n");
 		
 		// Ré-initialisation des variables pour executer le deuxième algo ( B&B )
 		fichEntreprises = new FichierUtils(CHEMIN_FICHIER + nomFichierEntreprise);
@@ -56,8 +56,10 @@ public class main {
 		System.out.println("------ Scenario 3 -------");
 		executionScenario("Liste Ent3.txt","Liste Bases3.txt");
 		System.out.println();
+		System.out.println();
 		System.out.println("------ Scenario 4 -------");
 		executionScenario("Liste Ent4.txt","Liste Bases4.txt");
+		System.out.println();
 		System.out.println();
 		System.out.println("------ Scenario 5 -------");
 		executionScenario("Liste Ent5.txt","Liste Bases5.txt");

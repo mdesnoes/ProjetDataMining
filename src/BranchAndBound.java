@@ -33,7 +33,7 @@ public class BranchAndBound {
 		else {
 			System.out.println("Bases optimales : ");
 		  for(Base b :noeudOptimale.getBases()) {
-			  System.out.println(b.getNomBase() + " ( cout : "+b.getCout() + " )");
+			  System.out.println(b.getNomBase() + " ( cout : " + b.getCout() + " )");
       }
 			System.out.println("Le cout optimal pour obtenir les informations sur les entreprise est : "+noeudOptimale.getCout());
 		}
